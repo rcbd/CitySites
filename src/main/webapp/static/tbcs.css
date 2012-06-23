@@ -1,0 +1,18 @@
+* { font-family: Calibri, Georgia, Sans; font-size: medium; }
+html,body { height: 100%; width: 100%; margin: 0; }
+#main { height: 100%; margin: 0 auto;  }
+header { text-align: center; background-image: url(http://www.tampagov.net/images/images2/contentPageHDR_Bckgrd.jpg); background-repeat: no-repeat; background-position: center; height: 191px; padding: 15px; }
+header .logo-title { position: relative; margin-top: 52px; margin-left: 605px; color: WhiteSmoke; font-size: 56px; font-style: italic; }
+footer { text-align: center; background-color: WhiteSmoke; font-size: 10px; font-style: italic; padding: 15px; }
+.content { margin: 0 auto; background-color: White; padding: 15px; }
+
+
+tr.admin-list-row { border: 1px solid transparent; }
+tr.admin-list-row:hover { border: 1px solid #666; background-color: #ffc; }
+.admin-list { width: 900px; }
+.entity-list-link { font-size: 20px; color: #369; font-weight: bold; }
+.entity-title { font-color: #66c; font-weight: bold; font-size: 20px; padding-botom: 10px; }
+.admin-entity label { display: block; color: #666; font-weight: bold; }
+.admin-entity input[type="text"] { width: 750px; border: 1px solid Silver; padding: 2px; }
+.admin-entity .btn { display: inline-block; }
+.admin-entity #entity-gmap { height: 300px; width: 900px; }

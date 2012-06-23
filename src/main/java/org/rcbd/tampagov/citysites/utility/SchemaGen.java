@@ -48,6 +48,7 @@ public class SchemaGen {
     public static void main(String[] args) throws Exception {
         SchemaGen gen = new SchemaGen("org.rcbd.tampagov.citysites.model");
         gen.generate(Dialect.MYSQL);
+//        gen.generate(Dialect.HSQL);
     }
 
     /**
