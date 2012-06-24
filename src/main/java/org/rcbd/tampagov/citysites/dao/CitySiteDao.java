@@ -14,7 +14,7 @@ import org.rcbd.tampagov.citysites.model.CitySite;
  */
 public interface CitySiteDao {
 
-    public CitySite saveCitySite(CitySite citySite);
+    public void saveCitySite(CitySite citySite);
     public List<CitySite> listCitySites(CitySite meta);
     public CitySite getCitySite(String id);
     

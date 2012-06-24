@@ -1,4 +1,4 @@
-* { font-family: sans-serif; }
+* { font-family: Calibri, Georgia, sans-serif; }
 body {
     padding: 0; margin: 0;    
 }
@@ -15,3 +15,28 @@ body {
     background-color: White; color: #333; margin: 0 0 10px; padding: 10px;
     border-radius: 5px; -moz-border-radius: 5px;
 }
+
+.mobile-entity-title { font-size: 20px; font-weight: bold; color: #3c3c3c; background-color: WhiteSmoke; border: 1px solid #ccc; border-radius: 5px; -moz-border-radius: 5px; padding: 2px 10px; }
+.mobile-entity-desc { color: #333; padding: 10px; }
+.mobile-service-form { padding: 10px; }
+.mobile-service-form label { display: block; color: #666; font-weight: bold; }
+.mobile-service-form input[type="text"] { font-size: 13px; width: 95%; border: 1px solid Silver; padding: 2px; }
+.admin-entity .btn { display: inline-block; }
+
+.mobile-feed-subtitle { color: #333; font-weight: bold; font-size: 30px; }
+
+.mobile-feed-entry { margin-bottom: 15px; }
+.mobile-feed-title { color: #369; font-size: 16px; padding-bottom: 2px; }
+.mobile-feed-title a { font-size: 18px; border-bottom: 1px solid #369; text-decoration: none; color: #369; padding-bottom: 2px; }
+.mobile-feed-date { color: #999; font-size: 14px; font-style: italic; padding-bottom: 2px; }
+.mobile-feed-desc { color: #333; }
+
+#near-me-content { }
+#near-me-content ul { margin: 0; padding: 0; }
+#near-me-content ul li { list-style: none; margin: 10px 0 0 10px; vertical-align: middle; font-size: 12px; font-style: italic; color: #666; }
+#near-me-content ul li a { display:block; color: #369; font-size: 18px; margin-right: 15px; font-style: normal; }
+
+#mobile-reservations { }
+#mobile-reservations ul { margin: 10px; padding: 0; }
+#mobile-reservations ul li { list-style: none; display: inline-block; margin: 10px 5px; }
+#mobile-reservations ul li a { height: 22px; font-size: 18px; border: 1px solid Silver; padding: 3px 10px; text-decoration: none; background-color: WhiteSmoke; margin: 5px; }

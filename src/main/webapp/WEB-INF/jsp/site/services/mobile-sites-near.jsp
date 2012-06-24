@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div id="mobile-sites-near" class="mobile-content-well">
-    <p>
+    <div class="mobile-entity-title">
         Find other places within 
         <select id="near-radius">
             <option value="1">1 mile</option>
@@ -14,7 +14,7 @@
         of 
         <select id="near-me-type"><option value="me">Me</option><option selected="selected" value="site">${citySite.name}</option></select>
         <button id="near-btn">Go</button>
-    </p>
+    </div>
     <div id="near-me-content" style="display:none;"></div>
     
     <script>

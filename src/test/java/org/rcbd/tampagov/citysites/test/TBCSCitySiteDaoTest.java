@@ -6,11 +6,13 @@
 package org.rcbd.tampagov.citysites.test;
 
 import java.io.File;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.inject.Inject;
 import junit.framework.Assert;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.log4j.Logger;
+import org.hsqldb.rights.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.rcbd.tampagov.citysites.dao.CitySiteDao;
@@ -58,14 +60,14 @@ public class TBCSCitySiteDaoTest {
         cs.setZip("33602");
         cs.setLatitude(0d); //27.946663394703556d);
         cs.setLongitude(0d); //-82.45803594589233d);
-        cs.setFeedUrl("https://search.twitter.com/search.atom?q=%23mayorshackathon");
+        cs.setFeedUrl("https://search.twitter.com/search.atom?q=%23tampahackathon");
         cs.setName("Mayor's Hackathon 2012");
         cs.setType("Live");
         cs.setUrl("http://www.tampagov.net/information_resources/hackathon/index.asp");
         
         citySiteService.geocodeCitySite(cs);
         
-		cs = citySiteDao.saveCitySite(cs);
+		citySiteDao.saveCitySite(cs);
         String expectedResult = cs.getId();        
         CitySite persistedCs = citySiteDao.getCitySite(cs.getId());
         Assert.assertEquals(expectedResult, persistedCs.getId());
@@ -81,35 +83,56 @@ public class TBCSCitySiteDaoTest {
         log.info("Created QR File: " + absQRFile);     
 	}
 
-//	@Test
-//	public void testRetrieveData() {
-//		List<User> userList = dao.getAllUser(new User());
-//		Assert.assertEquals(1, userList.size());
-//		User userExpected = userList.get(0);
-//		User userResult = dao.selectUserById(userExpected.getUserId());
-//		Assert.assertEquals(userExpected.getUserId(), userResult.getUserId());
-//	}
-//
-//	@Test
-//	public void testUpdateData() {
-//		List<User> userList = dao.getAllUser(new User());
-//		Assert.assertEquals(1, userList.size());
-//		User userExpected = userList.get(0);
-//		userExpected.setUserName("Singgih");
-//		dao.saveUser(userExpected);
-//		User userResult = dao.selectUserById(userExpected.getUserId());
-//		Assert.assertEquals(userExpected.getUserName(), userResult
-//				.getUserName());
-//	}
-//
-//	@Test
-//	public void testDeleteData() {
-//		List<User> userList = dao.getAllUser(new User());
-//		Assert.assertEquals(1, userList.size());
-//		User userExpected = userList.get(0);
-//		dao.deleteUser(userExpected);
-//		User userResult = dao.selectUserById(userExpected.getUserId());
-//		Assert.assertEquals(userResult, null);
-//	}
+	@Test
+	public void testRetrieveData() {
+        List<CitySite> sites = citySiteDao.listCitySites(null);
+		Assert.assertTrue(sites.size() >= 1);
+		CitySite siteExpected = sites.get(0);
+		CitySite siteResult = citySiteDao.getCitySite(siteExpected.getId());
+		Assert.assertEquals(siteExpected.getId(), siteResult.getId());
+	}
+    
+	@Test
+	public void testRetrieveDataByType() {
+        CitySite meta = new CitySite();
+        meta.setType("Live");
+        List<CitySite> sites = citySiteDao.listCitySites(meta);
+		Assert.assertTrue(sites.size() >= 1);
+		CitySite firstSite = sites.get(0);
+        Assert.assertEquals(firstSite.getType(), meta.getType());
+        
+        for (CitySite cs : sites) {
+            log.info("Found " + cs.getType() + " site: " + cs.getName());
+        }
+	}    
+    
+	@Test
+	public void testRetrieveDataByZip() {
+        CitySite meta = new CitySite();
+        meta.setZip("33614");
+        List<CitySite> sites = citySiteDao.listCitySites(meta);
+		Assert.assertTrue(sites.size() >= 1);
+		CitySite firstSite = sites.get(0);
+        Assert.assertEquals(firstSite.getZip(), meta.getZip());
+        for (CitySite cs : sites) {
+            log.info("Found " + cs.getZip() + " site: " + cs.getName());
+        }        
+	}       
+    
+	@Test
+	public void testRetrieveDataByName() {
+        CitySite meta = new CitySite();
+        String nameQuery = "city";
+        meta.setName(nameQuery);
+        List<CitySite> sites = citySiteDao.listCitySites(meta);
+		Assert.assertTrue(sites.size() >= 1);
+        for (CitySite cs : sites) {
+            Assert.assertTrue(cs.getName().toLowerCase().contains(nameQuery));
+        }
+        for (CitySite cs : sites) {
+            log.info("Found site: " + cs.getName());
+        }         
+	}       
+
     
 }

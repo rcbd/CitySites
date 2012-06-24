@@ -78,7 +78,8 @@
                 <jdbc.url>jdbc:mysql://localhost:53306/tampagov_citysites</jdbc.url>
                 <jdbc.username>citysites</jdbc.username>
                 <jdbc.password>citysites</jdbc.password>
-                <jdbc.hibernate.dialect>org.hibernate.dialect.MySQLDialect</jdbc.hibernate.dialect>                
+                <jdbc.hibernate.dialect>org.hibernate.dialect.MySQLDialect</jdbc.hibernate.dialect>    
+                <log.file>C:/Servers/netbeans-tomcat/logs/</log.file>
             </properties>
         </profile>
         <profile>
@@ -96,7 +97,8 @@
                 <jdbc.url>jdbc:mysql://localhost:3306/tampagov_citysites</jdbc.url>
                 <jdbc.username>citysites</jdbc.username>
                 <jdbc.password>citysites</jdbc.password>
-                <jdbc.hibernate.dialect>org.hibernate.dialect.MySQLDialect</jdbc.hibernate.dialect>                
+                <jdbc.hibernate.dialect>org.hibernate.dialect.MySQLDialect</jdbc.hibernate.dialect>      
+                <log.file>/opt/bitnami/apache-tomcat/logs/</log.file>
             </properties>
         </profile>        
     </profiles>
@@ -283,6 +285,11 @@
             <groupId>javax.inject</groupId>  
             <artifactId>javax.inject</artifactId>  
             <version>1</version>
+        </dependency>   
+        <dependency>
+            <groupId>rome</groupId>
+            <artifactId>rome</artifactId>
+            <version>1.0</version>
         </dependency>        
  
         <!-- Testing -->

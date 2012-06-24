@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:import url="${pageContext.servletContext.contextPath}/static/header.jsp" />
 <div class="content">
@@ -42,6 +43,7 @@
 			<p>
                 <label>State</label>
                 ${citySite.state}
+                <form:hidden path="state" id="state" />
 			</p>  
 			<p>
 				<form:label path="zip" for="zip">Zip Code</form:label>
