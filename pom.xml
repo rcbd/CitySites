@@ -73,6 +73,7 @@
             </activation>
             <properties>
                 <qrcode.storage.dir>C:/Temp/QR</qrcode.storage.dir>
+                <qrcode.site.host>http://localhost:8080</qrcode.site.host>
                 <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
                 <jdbc.url>jdbc:mysql://localhost:53306/tampagov_citysites</jdbc.url>
                 <jdbc.username>citysites</jdbc.username>
@@ -90,6 +91,7 @@
             </build>
             <properties>
                 <qrcode.storage.dir>/opt/bitnami/apache-tomcat/webapps/citysites/static/qr</qrcode.storage.dir>
+                <qrcode.site.host>http://ec2-23-20-227-167.compute-1.amazonaws.com</qrcode.site.host>
                 <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
                 <jdbc.url>jdbc:mysql://localhost:3306/tampagov_citysites</jdbc.url>
                 <jdbc.username>citysites</jdbc.username>

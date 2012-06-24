@@ -59,7 +59,7 @@ public class CitySite extends AbstractCitySiteEntity implements Serializable {
     }
 
     public String getCitySiteDestination() {
-        return (getType().equalsIgnoreCase("external")) ? getUrl() : "http://www.tampagov.net/citysites/" + getId() + "/" + getType().toLowerCase(); 
+        return (getType().equalsIgnoreCase("external")) ? getUrl() : csBundle.getString("qrcode.site.host") + "/site/" + getId() + "/" + getType().toLowerCase(); 
     }    
     
     /**
