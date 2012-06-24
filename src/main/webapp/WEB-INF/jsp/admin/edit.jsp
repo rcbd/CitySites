@@ -16,6 +16,10 @@
 				<form:input path="url" id="url"/>
 			</p>      
 			<p>
+				<form:label path="description" for="description">Description</form:label>
+				<form:textarea path="description" id="description"/>
+			</p>                  
+			<p>
 				<form:label path="type" for="type">Site Type</form:label>
                 <form:select items="${csTypes}" path="type" id="type" />
 			</p>            

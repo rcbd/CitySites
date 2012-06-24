@@ -23,4 +23,18 @@
                 <goal>dependency:resolve</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-AWS war</actionName>
+            <displayName>AWS war</displayName>
+            <goals>
+                <goal>clean</goal>
+                <goal>package</goal>
+            </goals>
+            <properties>
+                <skipTests>true</skipTests>
+            </properties>
+            <activatedProfiles>
+                <activatedProfile>aws</activatedProfile>
+            </activatedProfiles>
+        </action>
     </actions>

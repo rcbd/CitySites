@@ -5,16 +5,18 @@
 
 package org.rcbd.tampagov.citysites.controller;
 
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.inject.Inject;
-import org.omg.CORBA.Request;
 import org.rcbd.tampagov.citysites.dao.CitySiteDao;
 import org.rcbd.tampagov.citysites.model.CitySite;
 import org.rcbd.tampagov.citysites.service.CitySiteService;
+import org.rcbd.tampagov.citysites.utility.GeographicPoint;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -39,6 +41,12 @@ public class CitySiteController {
 		return lookupCitySites();
 	}    
     
+    @RequestMapping(value="/near/{lat}/{lng}/{distance}", method=RequestMethod.GET)
+    public @ResponseBody List<CitySite> nearbySites(@PathVariable double lat, @PathVariable double lng, @PathVariable double distance) {   
+        return citySiteService.findSitesNearMe(new GeographicPoint(lat, lng), distance);     
+    }
+    
+    
     @RequestMapping(value="/search", method=RequestMethod.GET)
     public ModelAndView lookupCitySites() {
         ModelAndView mav = new ModelAndView();
@@ -59,7 +67,7 @@ public class CitySiteController {
         String view = "site/" + cs.getType().toLowerCase();
         
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("view");
+        mav.setViewName(view);
         mav.addObject("citySite", cs);
         
         return mav;        

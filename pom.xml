@@ -12,6 +12,7 @@
     <name>Tampabay City Sites - Hackathon 2012</name>
     <url>http://maven.apache.org</url>
     <build>
+        <finalName>citysites</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -28,6 +29,12 @@
                 <version>${jetty.version}</version>
             </plugin>      
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>        
     </build>
     
     <properties>
@@ -59,6 +66,37 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>development</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <qrcode.storage.dir>C:/Temp/QR</qrcode.storage.dir>
+                <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+                <jdbc.url>jdbc:mysql://localhost:53306/tampagov_citysites</jdbc.url>
+                <jdbc.username>citysites</jdbc.username>
+                <jdbc.password>citysites</jdbc.password>
+                <jdbc.hibernate.dialect>org.hibernate.dialect.MySQLDialect</jdbc.hibernate.dialect>                
+            </properties>
+        </profile>
+        <profile>
+            <id>aws</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <finalName>ROOT</finalName>                    
+            </build>
+            <properties>
+                <qrcode.storage.dir>/opt/bitnami/apache-tomcat/webapps/citysites/static/qr</qrcode.storage.dir>
+                <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+                <jdbc.url>jdbc:mysql://localhost:3306/tampagov_citysites</jdbc.url>
+                <jdbc.username>citysites</jdbc.username>
+                <jdbc.password>citysites</jdbc.password>
+                <jdbc.hibernate.dialect>org.hibernate.dialect.MySQLDialect</jdbc.hibernate.dialect>                
+            </properties>
+        </profile>        
     </profiles>
     
     <repositories>
@@ -214,10 +252,10 @@
             <version>3.1</version>
         </dependency>        
         <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-jaxrs</artifactId>
-            <version>1.9.7</version>
-        </dependency>  
+            <groupId> org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.5</version>
+        </dependency>        
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -244,8 +282,7 @@
             <artifactId>javax.inject</artifactId>  
             <version>1</version>
         </dependency>        
-
-        
+ 
         <!-- Testing -->
         <dependency>
             <groupId>junit</groupId>

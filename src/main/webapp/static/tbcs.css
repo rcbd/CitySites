@@ -6,7 +6,7 @@ header .logo-title { position: relative; margin-top: 52px; margin-left: 605px; c
 footer { text-align: center; background-color: WhiteSmoke; font-size: 10px; font-style: italic; padding: 15px; }
 .content { margin: 0 auto; background-color: White; padding: 15px; }
 
-
+/**** Admin *****/
 tr.admin-list-row { border: 1px solid transparent; }
 tr.admin-list-row:hover { border: 1px solid #666; background-color: #ffc; }
 .admin-list { width: 900px; }
@@ -14,5 +14,8 @@ tr.admin-list-row:hover { border: 1px solid #666; background-color: #ffc; }
 .entity-title { font-color: #66c; font-weight: bold; font-size: 20px; padding-botom: 10px; }
 .admin-entity label { display: block; color: #666; font-weight: bold; }
 .admin-entity input[type="text"] { width: 750px; border: 1px solid Silver; padding: 2px; }
+.admin-entity textarea { width: 750px; height: 125px; border: 1px solid Silver; padding: 2px; }
 .admin-entity .btn { display: inline-block; }
 .admin-entity #entity-gmap { height: 300px; width: 900px; }
+
+

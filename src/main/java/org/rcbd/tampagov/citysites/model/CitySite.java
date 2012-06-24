@@ -47,6 +47,12 @@ public class CitySite extends AbstractCitySiteEntity implements Serializable {
     private String state = "FL";
     @Column(name="zip")
     private String zip;
+    @Column(name="site_desc")
+    @Lob
+    private String description;
+    
+    @Transient
+    private transient double distanceAway;
     
     public String getQRCodeFileName() {
         return csBundle.getString("qrcode.storage.dir") + "/QR" + getId() + ".png";
@@ -222,6 +228,34 @@ public class CitySite extends AbstractCitySiteEntity implements Serializable {
      */
     public void setZip(String zip) {
         this.zip = zip;
+    }
+
+    /**
+     * @return the distanceAway
+     */
+    public double getDistanceAway() {
+        return distanceAway;
+    }
+
+    /**
+     * @param distanceAway the distanceAway to set
+     */
+    public void setDistanceAway(double distanceAway) {
+        this.distanceAway = distanceAway;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }

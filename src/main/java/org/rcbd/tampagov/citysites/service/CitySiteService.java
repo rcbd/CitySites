@@ -5,7 +5,9 @@
 
 package org.rcbd.tampagov.citysites.service;
 
+import java.util.List;
 import org.rcbd.tampagov.citysites.model.CitySite;
+import org.rcbd.tampagov.citysites.utility.GeographicPoint;
 
 /**
  *
@@ -15,5 +17,7 @@ public interface CitySiteService {
 
     void geocodeCitySite(CitySite citySite);    
     String generateQRCode(CitySite citySite);
+    
+    List<CitySite> findSitesNearMe(GeographicPoint point, double radiusInMiles);
     
 }
